@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+        <link rel="stylesheet" type="text/css" href="styleViews.css">
+    </head>
+
+    <body>
+
+    <nav class="navbar navbar-expand-sm navbar-dark bg-primary">
+        <span class="navbar-brand h3">MediVentry</span>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#newMenu" aria-controls="newMenu" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>                
+        <div class="collapse navbar-collapse" id="newMenu">
+            <div class="navbar-nav">
+                <a href="/" class="nav-item nav-link">Home</a>
+                <a href="/meds" class="nav-item nav-link">Available Meds</a>
+                <a href="/add" class="nav-item nav-link">Add Meds</a>
+            </div>
+        </div>
+    </nav>
+
+        <div class="container">
+            <div class="row">
+                <div class="col=md-12">
+                    <br>
+                    <br>
+                    <h2>LIST OF AVAILABLE MEDICINES:</h2>
+                    <br>
+                    <br>
+                </div>
+            </div>
+        
+            <div class="row">
+                <div class="col-md-12">
+                    <table class="table table-striped">
+                        <thead class="thead thead-primary">
+                            <tr>
+                                <th scope="col">MID</th>
+                                <th scope="col">Name</th>
+                                <th scope="col">Count</th>
+                                <th scope="col">Brand</th>
+                                <th scope="col">Delete</th>
+                                <th scope="col">Edit</th>
+                            </tr>
+                        </thead>
+
+                        {{#rows}}
+                            <tr>
+                                <td>{{mid}}</td>
+                                <td>{{name}}</td>
+                                <td>{{count}}</td>
+                                <td>{{brand}}</td>
+                                <td>
+                                    <form action="/meds/delete/{{mid}}" method="post">
+                                        <button class="btn btn-primary" type="submit">delete</button>
+                                    </form>
+                                </td>
+                                <td>
+                                    <form action="/meds/edit/{{mid}}" method="get">
+                                        <button class="btn btn-primary" type="submit">edit</button>
+                                    </form>
+                                </td>
+                            </tr>
+                        {{/rows}}
+
+                    </table>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
