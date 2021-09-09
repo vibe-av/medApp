@@ -1,2 +1,3 @@
 # medApp
-inventory for a medical facility
+This is an inventory for a medical facility, if anyone wants to suggest any change or so, you are very welcome!
+I wanna learn more and more...
